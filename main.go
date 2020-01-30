@@ -1,15 +1,17 @@
 package main
 
-import (
-	"fmt"
-	"net/http"
-)
+import "fmt"
 
 func main() {
-	http.HandleFunc("/", HelloServer)
-	http.ListenAndServe(":8080", nil)
+	// a slice of type string
+	cards := []string{"Ace of Diamonds", newCard()}
+	cards = append(cards, "Six of Spades")
+
+	for i, card := range cards {
+		fmt.Println(i, card)
+	}
 }
 
-func HelloServer(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hello, %s!", r.URL.Path[1:])
+func newCard() string {
+	return "Five of Diamonds"
 }
