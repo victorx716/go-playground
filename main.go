@@ -2,5 +2,6 @@ package main
 
 func main() {
 	cards := newDeck()
-	cards.saveToFile("pacman")
+	cards.shuffle()
+	cards.print()
 }
