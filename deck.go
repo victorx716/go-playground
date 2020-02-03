@@ -65,7 +65,7 @@ func (d deck) shuffle() {
 	r := rand.New(source)
 
 	for i := range d {
-		newPosition := r.Intn(len(d) - 1)
+		newPosition := r.Intn(len(d))
 		// swap
 		d[i], d[newPosition] = d[newPosition], d[i]
 
