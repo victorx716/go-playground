@@ -2,6 +2,7 @@ package main
 
 import "fmt"
 
+// structs are pass by value (into new memory address in RAM)
 type contactInfo struct {
 	email   string
 	zipCode int
@@ -23,13 +24,17 @@ func main() {
 			zipCode: 90210,
 		},
 	}
+	// & operator retrieves memory address of jim (where the struct sits in RAM)
+	jimPointer := &jim // jimPointer points to original mem address
 
-	jim.updateName("jim")
+	jimPointer.updateName("jim")
 	jim.print()
 }
 
-func (p person) updateName(newFirstName string) {
-	p.firstName = newFirstName
+func (pointerToPerson *person) updateName(newFirstName string) {
+	// * asks for value sitting at such mem address. 
+	// & is address, * is value at address
+	(*pointerToPerson).firstName = newFirstName
 }
 
 func (p person) print() {
