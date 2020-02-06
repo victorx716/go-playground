@@ -25,14 +25,14 @@ func main() {
 		},
 	}
 	// & operator retrieves memory address of jim (where the struct sits in RAM)
-	jimPointer := &jim // jimPointer points to original mem address
+	// jimPointer points to original mem address
 
-	jimPointer.updateName("jim")
+	jim.updateName("jim")
 	jim.print()
 }
 
 func (pointerToPerson *person) updateName(newFirstName string) {
-	// * asks for value sitting at such mem address. 
+	// * asks for value sitting at such mem address.
 	// & is address, * is value at address
 	(*pointerToPerson).firstName = newFirstName
 }
@@ -40,3 +40,6 @@ func (pointerToPerson *person) updateName(newFirstName string) {
 func (p person) print() {
 	fmt.Printf("%+v", p)
 }
+
+// value types: int float string bool structs
+// reference types: slices maps channels pointers functions
