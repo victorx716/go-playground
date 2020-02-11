@@ -22,7 +22,6 @@ func printGreeting(b bot) {
 }
 
 func (englishBot) getGreeting() string {
-	// custom logic for generating english greeting
 	return "Hi there!"
 }
 
